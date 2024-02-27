@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { Observable } from 'rxjs';
+import { Book } from '../book';
 
 @Component({
   selector: 'app-home',
@@ -8,12 +9,13 @@ import { Observable } from 'rxjs';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private dataService: DataService) {}
-  book: any = {
-    name: 'krym is testing the api',
-    quantity: 2,
-    author: 'krym',
+  book: Book = {
+    name: 'krym  api',
+    quantity: 1,
+    author: 'awadwdawd',
   };
+  constructor(private dataService: DataService) {}
+
   ngOnInit(): void {
     this.dataService.getBook().subscribe((data) => {
       console.log(data);
