@@ -1,10 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  constructor(private dataService: DataService) {}
+  book: any = {
+    name: 'krym is testing the api',
+    quantity: 2,
+    author: 'krym',
+  };
+  ngOnInit(): void {
+    this.dataService.getBook().subscribe((data) => {
+      console.log(data);
+    });
 
+    this.dataService.addBook(this.book).subscribe((data) => {
+      console.log(data);
+    });
+  }
 }
