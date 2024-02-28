@@ -10,7 +10,7 @@ import { Book } from '../book';
 })
 export class HomeComponent implements OnInit {
   book: Book = {
-    name: 'krym  api',
+    name: 'krymaapi',
     quantity: 1,
     author: 'awadwdawd',
   };
