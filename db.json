@@ -1,16 +1,3 @@
 {
-  "books": [
-    {
-      "id": -1,
-      "name": "book",
-      "quantity": 2,
-      "author": ""
-    },
-    {
-      "name": "Book new",
-      "quantity": 2,
-      "author": "",
-      "id": 0
-    }
-  ]
+  "books": []
 }

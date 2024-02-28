@@ -26,9 +26,7 @@ export class HomeComponent implements OnInit {
   //   author: 'awadwdawd',
   // };
 
-  constructor(private bookService: BookService) {}
-
-  ngOnInit(): void {
+  constructor(private bookService: BookService) {
     this.bookService
       .getAll()
       .pipe(take(1))
@@ -36,6 +34,8 @@ export class HomeComponent implements OnInit {
         this.books = books;
       });
   }
+
+  ngOnInit(): void {}
 
   createOrUpdateBook(): void {
     this.bookGroup.value.id === -1 ? this.createBook() : this.updateBook();
@@ -73,10 +73,7 @@ export class HomeComponent implements OnInit {
       .delete(this.books[index].id as number)
       .pipe(take(1))
       .subscribe(() => {
-        this.books = this.books.filter((b) => {
-          b.id !== this.bookGroup.value.id;
-        });
-        this.bookGroup.reset();
+        this.books = this.books.filter((b) => b.id !== this.books[index].id);
       });
   }
 
