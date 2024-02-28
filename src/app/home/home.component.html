@@ -8,6 +8,7 @@
       id="name"
       type="text"
     />
+
     <label for="quantity">Quantity</label>
     <input
       required
@@ -16,11 +17,12 @@
       id="quantity"
       type="number"
     />
+
     <label for="author">Author</label>
     <input
       required
       placeholder="Book author"
-      formControlauthor="author"
+      formControlName="author"
       id="author"
       type="text"
     />
@@ -34,7 +36,7 @@
     <h1>My Books</h1>
     <ul>
       <li *ngFor="let book of books; let i = index">
-        {{ book.name }}- {{ book.author }}-
+        {{ book.name }} - {{ book.author }}-
         {{ book.quantity }}
         <div>
           <button (click)="deleteBook(i)">Delete</button>

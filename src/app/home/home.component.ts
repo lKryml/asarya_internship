@@ -56,9 +56,7 @@ export class HomeComponent implements OnInit {
       .update(this.bookGroup.value as Book)
       .pipe(take(1))
       .subscribe((updatedBook) => {
-        const index = this.books.findIndex((b) => {
-          b.id === updatedBook.id;
-        });
+        const index = this.books.findIndex((b) => b.id === updatedBook.id);
         this.books[index] = updatedBook;
         this.bookGroup.reset();
       });
