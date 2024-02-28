@@ -42,6 +42,7 @@
           <button (click)="deleteBook(i)">Delete</button>
           <button (click)="startEdit(i)">Edit</button>
         </div>
+        <app-book-card [book]="book"></app-book-card>
       </li>
     </ul>
   </div>
