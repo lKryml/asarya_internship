@@ -1,1 +1,46 @@
-<p>Testing api</p>
+<main>
+  <form [formGroup]="bookGroup" (submit)="createOrUpdateBook()">
+    <label for="name">Name</label>
+    <input
+      required
+      placeholder="Book Name"
+      formControlName="name"
+      id="name"
+      type="text"
+    />
+    <label for="quantity">Quantity</label>
+    <input
+      required
+      placeholder="quantity"
+      formControlName="quantity"
+      id="quantity"
+      type="number"
+    />
+    <label for="author">Author</label>
+    <input
+      required
+      placeholder="Book author"
+      formControlauthor="author"
+      id="author"
+      type="text"
+    />
+
+    <button type="submit">
+      {{ bookGroup.value.id !== -1 ? "Edit" : "Add" }} book
+    </button>
+  </form>
+
+  <div>
+    <h1>My Books</h1>
+    <ul>
+      <li *ngFor="let book of books; let i = index">
+        {{ book.name }}- {{ book.author }}-
+        {{ book.quantity }}
+        <div>
+          <button (click)="deleteBook(i)">Delete</button>
+          <button (click)="startEdit(i)">Edit</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</main>

@@ -58,12 +58,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "asarya_internship:build:production",
-              "proxyConfig": "src/proxy.conf.json"
+              "browserTarget": "asarya_internship:build:production"
             },
             "development": {
-              "browserTarget": "asarya_internship:build:development",
-              "proxyConfig": "src/proxy.conf.json"
+              "browserTarget": "asarya_internship:build:development"
             }
           },
           "defaultConfiguration": "development"
