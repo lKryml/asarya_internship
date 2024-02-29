@@ -1,16 +1,10 @@
 {
   "books": [
     {
-      "name": "FIRST BOOK",
+      "id": 2,
+      "name": "SECOND BOOK eeeeeeeeeeeeee",
       "quantity": 1,
-      "author": "FIRST",
-      "id": 1
-    },
-    {
-      "name": "SECOND BOOK ",
-      "quantity": 1,
-      "author": "SECOND",
-      "id": 2
+      "author": "SECOND"
     }
   ]
 }

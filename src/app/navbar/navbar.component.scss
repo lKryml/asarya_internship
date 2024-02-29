@@ -1,0 +1,35 @@
+.button,
+.active-button {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: #1976d2;
+  font-weight: 900;
+  cursor: pointer;
+  margin: 20px 0px;
+}
+.button::after {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 1px;
+  bottom: -3px;
+  left: 30%;
+  border-bottom: #1976d2 solid 1.5px;
+  transition: 0.5s;
+}
+.button:hover::after {
+  width: 90%;
+  left: 5%;
+}
+
+.active-button {
+  color: purple;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  gap: 30px;
+}

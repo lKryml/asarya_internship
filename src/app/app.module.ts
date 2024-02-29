@@ -10,12 +10,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BookCardComponent } from './book-card/book-card.component';
 import { BookModalComponent } from './book-modal/book-modal.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AddBookComponent } from './add-book/add-book.component';
 @NgModule({
   declarations: [
     AppComponent,
     BookCardComponent,
     BookModalComponent,
     HomeComponent,
+    NavbarComponent,
+    AddBookComponent,
   ],
   imports: [
     BrowserModule,
