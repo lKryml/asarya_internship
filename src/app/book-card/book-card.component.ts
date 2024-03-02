@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
-import { Book } from '../book';
+import { Book } from '../../_interfaces/book';
 import { BookModalComponent } from '../book-modal/book-modal.component';
 @Component({
   selector: 'app-book-card',

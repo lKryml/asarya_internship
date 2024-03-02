@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
-import { Book } from '../book';
+import { Book } from '../../_interfaces/book';
 @Component({
   selector: 'app-book-modal',
   templateUrl: './book-modal.component.html',

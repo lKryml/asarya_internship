@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { BookService } from '../book.service';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { BookService } from '../../_services/book.service';
 import { Observable, take } from 'rxjs';
-import { Book } from '../book';
+import { Book } from '../../_interfaces/book';
 import { FormControl, FormGroup } from '@angular/forms';
-
+import { Subject } from 'rxjs';
+import { FormDataService } from 'src/_services/form-data.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,13 +13,6 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class HomeComponent implements OnInit {
   books: Book[] = [];
 
-  bookGroup = new FormGroup({
-    id: new FormControl(-1, { nonNullable: true }),
-    name: new FormControl('', { nonNullable: true }),
-    quantity: new FormControl(1, { nonNullable: true }),
-    author: new FormControl('', { nonNullable: true }),
-  });
-
   // book: Book = {
   //   id: 1,
   //   name: 'krymaapi',
@@ -26,7 +20,12 @@ export class HomeComponent implements OnInit {
   //   author: 'awadwdawd',
   // };
 
-  constructor(private bookService: BookService) {
+  constructor(
+    private bookService: BookService,
+    public formDataService: FormDataService
+  ) {}
+
+  ngOnInit(): void {
     this.bookService
       .getAll()
       .pipe(take(1))
@@ -35,35 +34,9 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  ngOnInit(): void {}
-
-  createOrUpdateBook(): void {
-    this.bookGroup.value.id === -1 ? this.createBook() : this.updateBook();
-  }
-
-  createBook(): void {
-    this.bookService
-      .create(this.bookGroup.value as Book)
-      .pipe(take(1))
-      .subscribe((createdBook) => {
-        this.books.push(createdBook);
-        this.bookGroup.reset();
-      });
-  }
-
-  updateBook(): void {
-    this.bookService
-      .update(this.bookGroup.value as Book)
-      .pipe(take(1))
-      .subscribe((updatedBook) => {
-        const index = this.books.findIndex((b) => b.id === updatedBook.id);
-        this.books[index] = updatedBook;
-        this.bookGroup.reset();
-      });
-  }
-
   startEdit(index: number): void {
-    this.bookGroup.patchValue(this.books[index]);
+    // this.bookGroup.patchValue(this.books[index]);
+    this.formDataService.setBookIndex(index);
   }
 
   deleteBook(index: number): void {

@@ -1,1 +1,35 @@
-<p>add-book works!</p>
+<app-navbar></app-navbar>
+<main>
+  <form [formGroup]="bookGroup" (submit)="createOrUpdateBook()">
+    <label for="name">Name</label>
+    <input
+      required
+      placeholder="Book Name"
+      formControlName="name"
+      id="name"
+      type="text"
+    />
+
+    <label for="quantity">Quantity</label>
+    <input
+      required
+      placeholder="quantity"
+      formControlName="quantity"
+      id="quantity"
+      type="number"
+    />
+
+    <label for="author">Author</label>
+    <input
+      required
+      placeholder="Book author"
+      formControlName="author"
+      id="author"
+      type="text"
+    />
+
+    <button type="submit">
+      {{ bookGroup.value.id !== -1 ? "Edit" : "Add" }} book
+    </button>
+  </form>
+</main>
